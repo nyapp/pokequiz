@@ -55,6 +55,9 @@ function pickTypes() {
 }
 
 function hasAllTypes(pokemon, targetTypes) {
+  if (targetTypes.length === 1) {
+    return pokemon.types.length === 1 && pokemon.types[0] === targetTypes[0];
+  }
   return targetTypes.every((type) => pokemon.types.includes(type));
 }
 
