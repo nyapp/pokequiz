@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ポケモンタイプ当てクイズ</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="app" aria-live="polite">
+      <header class="app-header">
+        <h1>ポケモンタイプ当てクイズ</h1>
+        <p class="subtitle">指定タイプを同時に持つポケモン名を入力してください。</p>
+      </header>
+
+      <p id="appStatus" class="app-status" role="status">図鑑データを読み込み中です...</p>
+
+      <section class="card question-card" aria-labelledby="question-label">
+        <h2 id="question-label" class="section-title">問題</h2>
+        <p id="questionText" class="question-text"></p>
+      </section>
+
+      <section class="card answer-card" aria-labelledby="answer-label">
+        <h2 id="answer-label" class="section-title">回答</h2>
+        <form id="answerForm" class="answer-form">
+          <label for="answerInput">ポケモンの名前</label>
+          <input
+            id="answerInput"
+            name="answer"
+            type="text"
+            inputmode="text"
+            autocomplete="off"
+            placeholder="例: オニスズメ"
+            required
+          />
+          <button id="submitButton" type="submit">判定する</button>
+        </form>
+
+        <div id="resultArea" class="result-area" role="status"></div>
+
+        <button id="nextButton" class="secondary-button" type="button" disabled>
+          次の問題へ
+        </button>
+      </section>
+
+      <section class="card score-card" aria-labelledby="score-label">
+        <h2 id="score-label" class="section-title">スコア</h2>
+        <p id="scoreText">0 / 0 問 正解</p>
+      </section>
+    </main>
+
+    <script src="./data/pokemon-national-main.js" defer></script>
+    <script src="./app.js" defer></script>
+  </body>
+</html>
